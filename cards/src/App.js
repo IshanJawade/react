@@ -6,9 +6,9 @@ function App(){
         <div>
             <div> Personal Digital Assistants </div>
 
-            <ProfileCard/>
-            <ProfileCard/>
-            <ProfileCard/>
+            <ProfileCard title = "Alexa" handle = "@alexa99"/>
+            <ProfileCard title = "Cortana" handle = "@cortana15"/>
+            <ProfileCard title = "Siri" handle = "@apple.siri"/>
             
         </div>
        

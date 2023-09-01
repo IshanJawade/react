@@ -1,5 +1,5 @@
-function ProfileCard({ title , handle }){  //option 3
-    console.log(title, handle);
+function ProfileCard({ title , handle, image, desc }){  //option 3
+    // console.log(title, handle, image );
     // Options 1 
     // const title = props.title;
     // const handle = props.handle;
@@ -9,8 +9,21 @@ function ProfileCard({ title , handle }){  //option 3
 
     return(
         <div>
-            <div>Title is {title}</div>
-            <div>Handle is {handle}</div>
+            <div className = "card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src={image} alt = "image"/>
+                    </figure>
+                </div>
+                <div className='media-content'>
+                    <div className = 'title is-4'>{title} </div>
+                    <div className = 'title is-6'>{handle} </div>
+                </div>
+                <div className = 'content'>
+                    {desc}
+                </div>
+            </div>
+            
         </div>
 
     );

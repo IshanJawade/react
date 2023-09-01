@@ -2,4 +2,4 @@
 
  ## looks like this 
 
- ! [Screenshot](./Screenshot.jpg)
+ ![alt text](./Screenshot.jpg)

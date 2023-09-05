@@ -2,7 +2,7 @@
 function AnimalShow (){
     return(
         <div>
-            hgjhgjhgjhgj
+            AnimalShow
         </div>
     )
 }

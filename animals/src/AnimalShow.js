@@ -2,7 +2,7 @@
 function AnimalShow (){
     return(
         <div>
-            AnimalShow
+            Add animals to your list 
         </div>
     )
 }

@@ -18,9 +18,7 @@ function App(){
             <h1>Show animal's list</h1>
             <h2> <AnimalShow /> </h2>
             <button onClick = {handleClick}>Add Animal</button>
-            <div>
-                {animal}
-            </div>
+            <div>{animal}</div>
         </>
     );
 }

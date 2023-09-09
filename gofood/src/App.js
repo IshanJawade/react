@@ -1,8 +1,19 @@
+import { 
+  BrowserRouter as Router, Routes, Route, Link
+} from "react-router-dom";
 import Home from "./screens/Home";
+import Login from "./screens/Login";
 
 function App() {
   return (
-    <div> <Home/> </div>
+    <> 
+      <Router>
+        <Routes>
+          <Route exact path="/" element= {<Home /> } />
+          <Route exact path="/login" element= {<Login /> } />
+        </Routes>
+      </Router>
+    </>
   );
 
 }

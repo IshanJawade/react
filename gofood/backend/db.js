@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const mongoURI = "mongodb+srv://ishankjawade:MacBookPro2019@cluster0.kgxjnd5.mongodb.net/gofood?retryWrites=true&w=majority";
-//onst mongoURI = "mongodb://localhost:27017/";
+//const mongoURI = "mongodb://localhost:27017/gofood";
 
 const mongoDB = async () =>{
   await mongoose.connect(mongoURI, 

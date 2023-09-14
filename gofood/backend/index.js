@@ -1,11 +1,9 @@
 const express = require('express')
 const app = express()
 const port = 4000
-const database = require('./db')
-const fetchData = require('./db')
+const mongoDB = require('./db')
 
-
-database().catch(err => console.log(err));
+mongoDB()
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

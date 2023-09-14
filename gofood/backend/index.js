@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 4000
 const database = require('./db')
+const fetchData = require('./db')
+
 
 database().catch(err => console.log(err));
 

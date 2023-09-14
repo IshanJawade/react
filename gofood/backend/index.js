@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 const port = 4000
+const database = require('./db')
+
+database().catch(err => console.log(err));
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

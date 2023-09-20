@@ -3,7 +3,7 @@ const app = express();
 const port = 4000;
 const mongoDB = require('./db');
 
-mongoDB()
+mongoDB();
 
 
 app.use(express.json());

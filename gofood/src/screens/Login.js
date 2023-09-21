@@ -1,20 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
 export default function Login() {
+
+  const [creds, setCreds] = useState({email:"", password:""});
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch("http://localhost:4000/api/createuser", {
+            method:'POST',
+            headers:{
+                'Content-type': 'application/json'
+            },
+            body:JSON.stringify({email:creds.email, password:creds.password})
+        });
+        const json = await response.json();
+        console.log(json);
+
+        if(!json.success){
+            alert("Enter Valid Credentials")
+        }
+
+    }
+
+    const onChange = (event) =>{
+        setCreds({...creds, [event.target.name]:event.target.value})
+    }
   return (
     <>
         <div> <Navbar/> </div>
         <div className="container">
-          <form>
+          <form onSubmit={handleSubmit}>
               <div className="form-group m-3">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" name="email" value={creds.email} className="form-control" aria-describedby="emailHelp" onChange={onChange} />
               </div>
               <div className="form-group m-3">
                   <label for="exampleInputPassword1">Password</label>
-                  <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                  <input type="password" name="password" value={creds.password} className="form-control" onChange={onChange} />
               </div>
               <div className="form-group form-check m-3">
                   <input type="checkbox" className="form-check-input" id="exampleCheck1" />

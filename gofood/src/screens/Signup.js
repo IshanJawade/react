@@ -1,28 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 
 export default function Signup() {
+
+    const [creds, setCreds] = useState({name:"", email:"", password:"", location:""});
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch("http://localhost:4000/api/createuser", {
+            method:'POST',
+            headers:{
+                'Content-type': 'application/json'
+            },
+            body:JSON.stringify({name:creds.name, email:creds.email, password:creds.password, location:creds.address})
+        });
+        const json = await response.json();
+        console.log(json);
+
+        if(!json.success){
+            alert("Enter Valid Credentials")
+        }
+
+    }
+
+    const onChange = (event) =>{
+        setCreds({...creds, [event.target.name]:event.target.value})
+    }
+
     return (
         <>  
             <div><Navbar/></div>
             <div className="container">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="form-group m-3">
-                        <label for="exampleInputEmail1">Name</label>
-                        <input type="text" className="form-control" placeholder="Name" />
+                        <label htmlFor="exampleInputEmail1">Name</label>
+                        <input type="text" name="name" value={creds.name} className="form-control" onChange={onChange}  />
                     </div>
                     <div className="form-group m-3">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                        <label htmlFor="exampleInputEmail1">Email address</label>
+                        <input type="email" name="email" value={creds.email} className="form-control"  aria-describedby="emailHelp" onChange={onChange} />
                     </div>
                     <div className="form-group m-3">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                        <label htmlFor="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" value={creds.password} className="form-control"  onChange={onChange} />
                     </div>
-                    <div className="form-group form-check m-3">
-                        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                        <label className="form-check-label" for="exampleCheck1">Check me out</label>
+                    <div className="form-group m-3">
+                        <label htmlFor="exampleInputPassword1">Address</label>
+                        <input type="text" name="location" value={creds.location} className="form-control"  onChange={onChange} />
                     </div>
                     <button type="submit" className="btn btn-primary m-3">Submit</button>
                     <Link to="/login" className="m-3"> Already a user</Link>

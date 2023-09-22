@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 
 
 app.use(express.json());
-app.use('/api', require("./Routes/CreateUser"));
+app.use('/api', require("./Routes/LoginSignup"));
 
 app.get('/', (req, res) => {
   res.send('Backend server is running here !')

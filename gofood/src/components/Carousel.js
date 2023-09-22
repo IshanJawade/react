@@ -1,6 +1,3 @@
-// "https://source.unsplash.com/random/200×100/?burger"
-// style={{ filter: "brightness(60%)" }}
-// style={{ zIndex: "10" }}
 import { Link } from "react-router-dom"
 
 export default function Carousel() {

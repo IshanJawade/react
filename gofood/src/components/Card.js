@@ -1,7 +1,7 @@
 
 // https://source.unsplash.com/random/286x180/?
 
-export default function Card(foodImage) {
+export default function Card() {
     return (
         <div>
             <div className="card m-3" style={{width: "18rem"}}>

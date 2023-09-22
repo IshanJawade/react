@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const { body, validationResult } = require('express-validator');
 
-router.post("/createuser", [
+router.post("/signup", [
     body('email', "Invalid email").isEmail(),
     body('password', "Password length should be at least 5").isLength({ min: 5 }),
 ],
@@ -27,12 +27,13 @@ router.post("/createuser", [
             console.log(error);
             res.json({ success: false })
         }
-    })
+    }
+)
 
-router.post("/loginuser", [
+router.post("/login", [
     body('email', "Invalid email").isEmail(),
     body('password', "Password length should be at least 5").isLength({ min: 5 })
-],
+    ],
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {

@@ -8,7 +8,7 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:4000/api/loginuser", {
+        const response = await fetch("http://localhost:4000/api/login", {
             method:'POST',
             headers:{
                 'Content-type': 'application/json'
@@ -33,16 +33,16 @@ export default function Login() {
         <div className="container">
           <form onSubmit={handleSubmit}>
               <div className="form-group m-3">
-                  <label for="exampleInputEmail1">Email</label>
+                  <label htmlFor="exampleInputEmail1">Email</label>
                   <input type="email" name="email" value={creds.email} className="form-control" aria-describedby="emailHelp" onChange={onChange} />
               </div>
               <div className="form-group m-3">
-                  <label for="exampleInputPassword1">Password</label>
+                  <label htmlFor="exampleInputPassword1">Password</label>
                   <input type="password" name="password" value={creds.password} className="form-control" onChange={onChange} />
               </div>
               <div className="form-group form-check m-3">
                   <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                  <label className="form-check-label" for="exampleCheck1">Remember me</label>
+                  <label className="form-check-label" htmlFor="exampleCheck1">Remember me</label>
               </div>
               <button type="submit" className="btn btn-primary m-3">Submit</button>
               <Link to="/signup" className="m-3"> New User</Link>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
-  const [creds, setCreds] = useState({email:"", password:""});
+    const [creds, setCreds] = useState({email:"", password:""});
+    let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,6 +21,11 @@ export default function Login() {
 
         if(!json.success){
             alert("Enter Valid Credentials")
+        }
+
+        if(json.success){
+            localStorage.setItem("authToken", json.authToken);
+            navigate("/");
         }
 
     }

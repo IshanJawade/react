@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const mongoURI = "mongodb+srv://ishankjawade:MacBookPro2019@cluster0.kgxjnd5.mongodb.net/gofood?retryWrites=true&w=majority";
 // const mongoURI = "mongodb://localhost:27017/gofood";
 
-const mongoDB = async () =>{
-  await mongoose.connect(mongoURI, 
-    {useNewUrlParser: true } , async (err, result) => {
-      if(err) console.log(err)
+const mongoDB = async () => {
+  await mongoose.connect(mongoURI,
+    { useNewUrlParser: true }, async (err, result) => {
+      if (err) console.log(err)
       else {
         console.log("DB connected");
         const fetched_data = mongoose.connection.db.collection("food_items");

@@ -15,7 +15,6 @@ app.use((req, res, next) => {
   }
 )
 
-
 app.use(express.json());
 app.use('/api', require("./Routes/LoginSignup"));
 app.use('/api', require("./Routes/DisplayData"));

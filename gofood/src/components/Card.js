@@ -1,14 +1,18 @@
 
 // https://source.unsplash.com/random/286x180/?
 
-export default function Card() {
+export default function Card({foodName, foodDec, foodImg, foodOption}) {
+
+    let options = foodOption;
+    let priceOptions = Object.keys(options);
+
     return (
         <div>
             <div className="card m-3" style={{width: "18rem"}}>
-                <img className="card-img-top" src="https://source.unsplash.com/random/286x180/?fastfood" alt=" "/>
+                <img className="card-img-top" src={foodImg} alt=" "/>
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">Description about this card item</p>
+                        <h5 className="card-title">{foodName}</h5>
+                        <p className="card-text">{foodDec}</p>
                         <div className="container w-100 ">
                             <select className="m-2  rounded">
                                 {Array.from(Array(5), (e,i) => { 
@@ -18,8 +22,13 @@ export default function Card() {
                                 })}
                             </select>
                             <select className="m-2 rounded">
-                                    <option value={"half"}>Half</option>
-                                    <option value={"Full"}>Full</option>
+                                    {
+                                        priceOptions.map((data)=>{
+                                            return (
+                                                <option key={data} value={data}> {data} </option>
+                                            )
+                                        })
+                                    }
                             </select>
                             <h5>Total Price</h5>
                         </div>

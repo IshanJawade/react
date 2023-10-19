@@ -36,7 +36,7 @@ export default function Home() {
                 <div className="carousel-inner" id="carousel">
                     <div className="carousel-caption d-none d-md-block" style={{ zIndex: "10" }}>
                         <div className="form-inline d-flex">
-                            <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={search} onchange={(e)=>{setSearch(e.target.value)}} />
+                            <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}} />
                         </div>
                     </div>
                     <div className="carousel-item active">
@@ -72,7 +72,7 @@ export default function Home() {
                     <hr />
                     {
                       foodItem == [] ? <div> No food items found</div>
-                      : foodItem.filter((item)=> (item.CategoryName == data.CategoryName && (item.name.toLowerCase().includes(search.toLocaleLowerCase()))))
+                      : foodItem.filter((item)=> (item.CategoryName == data.CategoryName) && (item.name.toLowerCase().includes(search.toLocaleLowerCase())))
                       .map(filterItems=>{
                         return (
                           <div key={filterItems._id} className='col-12 col-md-6 col-lg-3'>

@@ -9,7 +9,7 @@ export default function Card({foodName, foodDec, foodImg, foodOption}) {
     return (
         <div>
             <div className="card m-3" style={{width: "18rem"}}>
-                <img className="card-img-top" src={foodImg} alt=" "/>
+                <img className="card-img-top " width={200} height={160} src={foodImg} alt=" "/>
                     <div className="card-body">
                         <h5 className="card-title">{foodName}</h5>
                         <p className="card-text">{foodDec}</p>

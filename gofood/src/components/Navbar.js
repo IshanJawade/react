@@ -1,7 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
+
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    navigate("/");
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary navbar-light">
@@ -11,14 +17,26 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item ">
-                <Link className="nav-link" to="/login">Login</Link>
-              </li>
-              <li className="nav-item ">
-                <Link className="nav-link" to="/signup">SignUp</Link>
-              </li>
+            <ul className="navbar-nav me-auto">
+              {
+                (localStorage.getItem("authToken")) 
+                ? <li className="nav-item"> 
+                    <Link className=" nav-link active fs-5" to="/">My Orders</Link>
+                  </li>
+                : ''
+              }
             </ul>
+            {
+                (!localStorage.getItem("authToken")) 
+                ? <div className='d-flex'>
+                    <Link className="btn btn-primary mx-1 " to="/login">Login</Link>
+                  </div>
+                : 
+                  <div className='d-flex'>
+                    <Link className=" nav-link active fs-5 mx-1" to="">Cart</Link>
+                    <button className="btn btn-secondary mx-1 " onClick={handleLogout}>Logout</button>
+                  </div>
+              }
           </div>
         </div>
       </nav>  

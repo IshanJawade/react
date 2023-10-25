@@ -33,7 +33,7 @@ export default function Navbar() {
                   </div>
                 : 
                   <div className='d-flex'>
-                    <Link className=" nav-link active fs-5 mx-1" to="">Cart</Link>
+                    <Link className=" btn btn-warning mx-1" to="/cart">Cart</Link>
                     <button className="btn btn-secondary mx-1 " onClick={handleLogout}>Logout</button>
                   </div>
               }

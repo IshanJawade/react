@@ -31,6 +31,10 @@ export default function Card({foodName, foodDec, foodImg, foodOption}) {
                                     }
                             </select>
                             <h5>Total Price</h5>
+                            <hr></hr>
+                            <div className="d-flex justify-content-between align-items-center">
+                                <button className=" btn btn-warning justify-content-between align-items-center">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
             </div>

@@ -1,6 +1,4 @@
 
-// https://source.unsplash.com/random/286x180/?
-
 export default function Card({foodName, foodDec, foodImg, foodOption}) {
 
     let options = foodOption;
@@ -30,10 +28,10 @@ export default function Card({foodName, foodDec, foodImg, foodOption}) {
                                         })
                                     }
                             </select>
-                            <h5>Total Price</h5>
+                            <h5 className="mt-2">Total Price</h5>
                             <hr></hr>
-                            <div className="d-flex justify-content-between align-items-center">
-                                <button className=" btn btn-warning justify-content-between align-items-center">Add to Cart</button>
+                            <div className="d-grid gap-2 mx-auto">
+                                <button className=" btn btn-warning ">Add to Cart</button>
                             </div>
                         </div>
                     </div>

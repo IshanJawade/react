@@ -21,7 +21,7 @@ export default function Navbar() {
               {
                 (localStorage.getItem("authToken")) 
                 ? <li className="nav-item"> 
-                    <Link className=" nav-link active fs-5" to="/">My Orders</Link>
+                    <Link className=" nav-link active fs-5" to="">My Orders</Link>
                   </li>
                 : ''
               }
@@ -34,7 +34,7 @@ export default function Navbar() {
                 : 
                   <div className='d-flex'>
                     <Link className=" btn btn-warning mx-1" to="/cart">Cart</Link>
-                    <button className="btn btn-secondary mx-1 " onClick={handleLogout}>Logout</button>
+                    <button className="btn btn-primary mx-1 " onClick={handleLogout}>Logout</button>
                   </div>
               }
           </div>

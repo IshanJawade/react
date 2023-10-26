@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
-import { Link, useNavigate } from 'react-router-dom';
 import CartItem from '../components/CartItem';
 
 export default function Cart() {

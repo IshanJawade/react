@@ -76,10 +76,9 @@ export default function Home() {
                       .map(filterItems=>{
                         return (
                           <div key={filterItems._id} className='col-12 col-md-6 col-lg-3'>
-                            <Card foodName = {filterItems.name} 
-                            foodDec = {filterItems.description}
-                            foodImg = {filterItems.img}
-                            foodOption = {filterItems.options[0]}
+                            <Card 
+                              foodItems = {filterItems}
+                              foodOption = {filterItems.options[0]}
                             />
                           </div>
                         )
